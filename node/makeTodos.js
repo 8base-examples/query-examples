@@ -5,7 +5,7 @@ const ENDPOINT = `https://api.8base.com/cjrscs00e000y01rt2iesngcu`
 // Uncomment the code below to add Authentication
 // const client = new GraphQLClient(ENDPOINT, {
 //   headers: {
-//     Authorization: 'Bearer c5708924-8b40-42d6-b7e4-f07cd2b11018',
+//     Authorization: 'Bearer {your-api-token-here}',
 //   },
 // })
 
