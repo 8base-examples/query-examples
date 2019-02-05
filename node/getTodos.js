@@ -1,6 +1,6 @@
 const { request } = require('graphql-request')
 
-const ENDPOINT = `https://api.8base.com/cjrscs00e000y01rt2iesngcu`
+const ENDPOINT = `{your-endpoint-here}`
 
 const GET_TODOS = `
 query {
