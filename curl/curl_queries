@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Query:
+
+curl \
+   -X POST \
+   -H "Content-Type: application/json" \
+ --data '{ "query": "{ todosList { items { text } } }" }' \
+ {your-endpoint-here}
+
+
+# Mutation:
+
+ curl \
+   -X POST \
+   -H "Content-Type: application/json" \
+ --data '{"query":"mutation TodoCreate { todoCreate(data: {text: \"from CURL\", completed: false}) {id text completed}}"}' \
+{your-endpoint-here}
+
+
+# Mutation with Auth:
+
+curl \
+   -X POST \
+   -H "Content-Type: application/json" \
+   -H 'authorization: Bearer {your-api-token-here}' \
+   --data '{"query":"mutation TodoCreate { todoCreate(data: {text: \"from CURL with auth\", completed: false}) {id text completed}}"}' \
+{your-endpoint-here}
