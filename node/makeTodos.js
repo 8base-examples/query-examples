@@ -9,7 +9,6 @@ const ENDPOINT = `{your-endpoint-here}`
 //   },
 // })
 
-
 const GET_TODOS = `
 query {
   todosList {
