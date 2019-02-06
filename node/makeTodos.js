@@ -1,6 +1,6 @@
 const { request, GraphQLClient } = require('graphql-request')
 
-const ENDPOINT = `https://api.8base.com/cjrscs00e000y01rt2iesngcu`
+const ENDPOINT = `{your-endpoint-here}`
 
 // Uncomment the code below to add Authentication
 // const client = new GraphQLClient(ENDPOINT, {
