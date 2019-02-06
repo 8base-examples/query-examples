@@ -20,12 +20,8 @@ query {
 `
 
 const MAKE_TODO = `
-  mutation TodoCreate {
-    todoCreate(
-      data: {
-        text: "from node",
-        completed: false
-    }) {
+  mutation TodoCreate($data: TodoCreateInput!) {
+    todoCreate(data: $data) {
       id
       text
       completed
@@ -33,5 +29,12 @@ const MAKE_TODO = `
   }
 `
 
-request(ENDPOINT, MAKE_TODO ).then((r) => console.log(r)) //Use this for unauthenticated
-// client.request(MAKE_TODO).then((r) => console.log(r)) //Use this for authenticated
+const VARIABLES = {
+  data: {
+    text: "from node",
+    completed: false
+  }
+}
+
+request(ENDPOINT, MAKE_TODO, VARIABLES).then((r) => console.log(r)) //Use this for unauthenticated
+// client.request(MAKE_TODO, VARIABLES).then((r) => console.log(r)) //Use this for authenticated
