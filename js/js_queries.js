@@ -5,7 +5,7 @@ fetch("{your-endpoint-here}",
       "headers": {
           "content-type": "application/json"
       },
-      "body": "{\"query\":\"{\\n  todosList {\\n    items {\\n      text\\n      __typename\\n    }\\n    __typename\\n  }\\n}\\n\"}",
+      "body": JSON.stringify({"query":'{todosList {items {text}} }'}),
       "method": "POST"
   }
 ).then(r => r.json()).then(r => console.log("success: ", JSON.stringify(r)))
@@ -18,20 +18,20 @@ fetch("{your-endpoint-here}",
       "headers": {
           "content-type": "application/json"
       },
-      "body": "{\"query\":\"mutation TodoCreate {\\n  todoCreate(data: {text: \\\"from js fetch again\\\", completed: false}) {\\n    id\\n    text\\n    completed\\n    __typename\\n  }\\n}\\n\"}",
+      "body": JSON.stringify({"query": 'mutation TodoCreate($data: TodoCreateInput!) { todoCreate(data: $data) {id, text, completed }}', variables: { data: { text: "from js fetch again", completed: false }  } }),
       "method": "POST"
   }
 ).then((r) => r.json()).then(r => console.log("success: ", JSON.stringify(r)))
 
 // Mutate with Authentication
 
-fetch("https://api.8base.com/cjoew0fyz002q01s7ib5ouvqp",
+fetch("{your-endpoint-here}",
   {
       "headers": {
           "content-type": "application/json",
           "authorization": "Bearer {your-api-token-here}"
       },
-      "body": "{\"query\":\"mutation TodoCreate {\\n  todoCreate(data: {text: \\\"from js fetch with auth\\\", completed: false}) {\\n    id\\n    text\\n    completed\\n    __typename\\n  }\\n}\\n\"}",
+      "body": JSON.stringify({"query": 'mutation TodoCreate($data: TodoCreateInput!) { todoCreate(data: $data) {id, text, completed }}', variables: { data: { text: "from js fetch again", completed: false }  } }),
       "method": "POST"
   }
 ).then((r) => r.json()).then(r => console.log("success: ", JSON.stringify(r)))
